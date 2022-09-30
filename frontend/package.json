@@ -46,7 +46,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "sudo react-scripts start",
     "start-prod": "export NODE_ENV=production || SET \"NODE_ENV=production\" && npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
