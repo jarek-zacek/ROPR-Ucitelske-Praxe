@@ -6,7 +6,6 @@ import cz.osu.teacherpractice.filter.CustomAuthorizationFilter;
 import cz.osu.teacherpractice.model.Role;
 import cz.osu.teacherpractice.repository.UserRepository;
 import cz.osu.teacherpractice.service.UserDetailsServiceImpl;
-import cz.osu.teacherpractice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,19 +14,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
-import javax.servlet.http.HttpServletResponse;
-import java.util.Arrays;
 import java.util.List;
 
 import static cz.osu.teacherpractice.config.AppConfig.baseUrlDevelopment;
@@ -63,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.authorizeRequests();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
-        http.authorizeRequests().antMatchers("/login/**", "/register/**", "/forgotPassword/**").permitAll();
+        http.authorizeRequests().antMatchers("/login/**", "/register/**", "/forgotPassword/**", "/HealthCheck/**").permitAll();
         http.authorizeRequests().antMatchers("/student/**").hasAnyAuthority(Role.STUDENT.getCode(), Role.COORDINATOR.getCode());
         http.authorizeRequests().antMatchers("/teacher/**").hasAuthority(Role.TEACHER.getCode());
         http.authorizeRequests().antMatchers("/coordinator/**").hasAuthority(Role.COORDINATOR.getCode());
