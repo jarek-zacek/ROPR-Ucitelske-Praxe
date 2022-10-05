@@ -52,9 +52,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors();
+        //http.cors();
         http.csrf().disable();
-        http.authorizeRequests();
+        //http.authorizeRequests();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         http.authorizeRequests().antMatchers("/login/**", "/register/**", "/forgotPassword/**", "/healthCheck/**").permitAll();
         http.authorizeRequests().antMatchers("/student/**").hasAnyAuthority(Role.STUDENT.getCode(), Role.COORDINATOR.getCode());
