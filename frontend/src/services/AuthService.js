@@ -30,6 +30,13 @@ class AuthService {
                 }
             }
             return response.data;
+        }).catch(error => {
+            if (!error.response) {
+                // network error
+                console.log('Error: Network Error');
+            } else {
+                console.log(error.response.data.message);
+            }
         });
     }
 
