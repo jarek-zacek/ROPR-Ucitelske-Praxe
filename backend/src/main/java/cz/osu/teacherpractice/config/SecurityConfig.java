@@ -7,6 +7,7 @@ import cz.osu.teacherpractice.model.Role;
 import cz.osu.teacherpractice.repository.UserRepository;
 import cz.osu.teacherpractice.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,7 +35,8 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     // should be stored on a more secure place
-    public static final String JWT_SECRET_KEY = "secret-key";
+    @Value("${jwt.secret}")
+    public String JWT_SECRET_KEY;
     public static final int JWT_TOKEN_EXPIRATION_DAYS = 14;
 
     // cookie containing jwt token
