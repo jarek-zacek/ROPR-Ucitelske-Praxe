@@ -58,7 +58,6 @@ export const AddSubjectComponent = () => {
             console.log(err.response.data.message);
         });
         if (response && response.data) {
-            console.log(response);
             setModalShow(false);
             getSubjects();
         }

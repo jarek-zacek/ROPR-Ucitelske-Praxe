@@ -99,12 +99,10 @@ export const TeacherListedPractices = () => {
         if (response && response.data) {
             setPraxe(response.data);
             setDateRangeLimit(response.data);
-            console.log("setting praxe data");
         }
     };
 
     useEffect(() => {
-        console.log("using effects");
         getPraxe();
         getSubjects();
     }, [todos]);

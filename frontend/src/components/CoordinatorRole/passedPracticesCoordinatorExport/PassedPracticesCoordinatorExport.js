@@ -93,7 +93,6 @@ export const PassedPracticesCoordinatorExport = () => {
     const downloadExport = async () => {
         let start = dateRange[0]["startDate"];
         let end = dateRange[0]["endDate"];
-        console.log(start, end);
         const response = await axios({
             url: GET_EXPORTED_PRACTICES_URL,
             withCredentials: true,
@@ -167,10 +166,7 @@ export const PassedPracticesCoordinatorExport = () => {
         Object.keys(reviews).forEach(key => {
             let id = key;
             let name = reviews[key]
-            console.log(id, name);
-
             document.getElementById(key + " " + name).classList.remove('review-btn-not-disabled');
-
         });
     }
 
@@ -272,7 +268,6 @@ export const PassedPracticesCoordinatorExport = () => {
             setModalShowReview(true);
         });
         if (response && response.data) {
-            console.log(response.data);
             setSelectedReview(response.data);
             setModalShowReview(true);
         } else {

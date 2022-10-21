@@ -43,7 +43,6 @@ function ShowTeachers() {
 
     React.useEffect(() => {
         getTeachers();
-        console.log(teachers);
     }, []);
 
 

@@ -161,14 +161,11 @@ export const PassedPracticesCoordinator = () => {
             if (shouldCall) {
                 setShouldCall(false);
             }
-            console.log();
+
             Object.keys(reviews).forEach(key => {
                 let id = key;
                 let name = reviews[key]
-                console.log(id, name);
-
                 document.getElementById(key + " " + name).classList.remove('review-btn-not-disabled');
-
             });
         }
 
@@ -296,7 +293,6 @@ export const PassedPracticesCoordinator = () => {
                 setModalShowReview(true);
             });
             if (response && response.data) {
-                console.log(response.data);
                 setSelectedReview(response.data);
                 setModalShowReview(true);
             } else {

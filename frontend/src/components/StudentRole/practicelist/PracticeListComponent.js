@@ -162,7 +162,6 @@ export const PracticeListComponent = () => {
                 console.log(err.response.data.message);
             });
             if (response && response.data) {
-                console.log(response);
                 setPraxe(response.data);
             }
             await getPraxe();
@@ -177,7 +176,6 @@ export const PracticeListComponent = () => {
                 console.log(err.response.data.message);
             });
             if (response && response.data) {
-                console.log(response);
                 setPraxe(response.data);
             }
             await getPraxe();

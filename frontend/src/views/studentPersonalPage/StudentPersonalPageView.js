@@ -3,7 +3,6 @@ import StudentPersonalPageComponent from "../../components/StudentRole/studentPe
 import {Navigate} from "react-router-dom";
 
 const checkRole = () => {
-  console.log("storage",localStorage.getItem("role"));
   return localStorage.getItem("role") !== "ROLE_STUDENT";
 };
 

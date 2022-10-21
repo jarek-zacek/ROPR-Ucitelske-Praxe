@@ -3,7 +3,6 @@ import CoordinatorPersonalPageComponent from "../../components/CoordinatorRole/C
 import {Navigate} from "react-router-dom";
 
 const checkRole = () => {
-  console.log("storage",localStorage.getItem("role"));
   return localStorage.getItem("role") !== "ROLE_COORDINATOR";
 };
 

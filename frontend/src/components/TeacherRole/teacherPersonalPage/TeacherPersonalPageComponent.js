@@ -61,7 +61,6 @@ const TeacherPersonalPageComponent = () => {
             console.log(err.response.data.message);
         });
         if (response && response.data) {
-            console.log(response);
             delay(100).then(() => {
                 getUserData();
                 delay(50).then(() => {
@@ -78,7 +77,6 @@ const TeacherPersonalPageComponent = () => {
 
     const getUserData = async () => {
         if (getCurrentRole() == null) return;
-        console.log("fetching user data");
 
         // Make first two requests
         const response = await Promise.all([

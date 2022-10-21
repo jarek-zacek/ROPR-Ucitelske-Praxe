@@ -24,7 +24,6 @@ function ShowStudents() {
 
     React.useEffect(() => {
         getStudents();
-        console.log(students);
     }, []);
 
 

@@ -78,7 +78,6 @@ export class ChangePasswordComponent extends Component {
     }
 
     handlePasswordReset(e) {
-       console.log("form with password", e);
         e.preventDefault();
         this.form.validateAll();
         if (this.checkBtn.context._errors.length === 0) {

@@ -104,7 +104,6 @@ export const PastPracticeListComponent = () => {
         };
 
         const postReview = async (practiceId, review) => {
-            console.log("review text", review);
             const response = await axios({
                 headers: {'content-type': 'text/plain'},
                 url: `${URL}/student/practices/${practiceId}/submitReview`,
@@ -116,13 +115,11 @@ export const PastPracticeListComponent = () => {
                 setSuccessMessage("");
             });
             if (response && response.data) {
-                console.log(response.data);
                 getPraxe();
             }
         };
 
         useEffect(() => {
-            console.log("past practices use effect", pastPracticesRedux);
             getPraxe();
             getSchools();
             getSubjects();
@@ -224,7 +221,6 @@ export const PastPracticeListComponent = () => {
     }
 
         function createReview() {
-            console.log("here");
             postReview(currentPracticeId,
                 review[0]
             );

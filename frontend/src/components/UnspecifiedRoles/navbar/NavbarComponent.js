@@ -16,7 +16,6 @@ function refreshPage() {
 const NavbarComponent = () => {
 
     const redirectBasedOnRoleMainView = () => {
-        console.log("role", JSON.parse(localStorage.getItem("user")).role);
         switch (JSON.parse(localStorage.getItem("user")).role) {
             case 'ROLE_STUDENT':
                 return window.location.href = '/studentHome';
@@ -25,10 +24,9 @@ const NavbarComponent = () => {
             case 'ROLE_COORDINATOR':
                 return window.location.href = '/coordinatorHome';
             case 'ROLE_ADMIN':
-                console.log("admin");
                 return window.location.href = '/adminHome';
             default:
-                console.log("fail");
+                console.log("Bad redirection, returning to login...");
                 return window.location.href = '/login';
         }
     }

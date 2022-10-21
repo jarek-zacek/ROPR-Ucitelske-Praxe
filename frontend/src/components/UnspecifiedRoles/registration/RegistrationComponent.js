@@ -134,7 +134,6 @@ export class RegistrationComponent extends Component {
     }
 
     setSchools(e) {
-        console.log("data in e", e)
         this.setState({
             schoolList: e.sch,
         });
@@ -148,7 +147,6 @@ export class RegistrationComponent extends Component {
         })
             .then(res => {
                 const schools = res.data;
-                console.log("schools:", schools);
                 const sch = [];
                 schools.forEach(element => sch.push(element));
                 this.setSchools({sch});
@@ -212,9 +210,6 @@ export class RegistrationComponent extends Component {
     };
 
     handleRegister(e) {
-        console.log("handling register")
-        //Use something like this to check renderering, but after everything is fetched from the server
-        // Uncomment this below and add proper error handling for servercall
         e.preventDefault();
         this.form.validateAll();
         if (this.checkBtn.context._errors.length === 0 || (this.state.occupation === "teacher" && this.checkBtn.context._errors.length <= 1)) { // Don't ask
@@ -225,7 +220,6 @@ export class RegistrationComponent extends Component {
             });
             AuthService.register(this.state.email, this.state.name, this.state.surname, this.state.school, this.state.telephone, this.state.password, this.state.occupation).then(
                 (res) => {
-                    console.log("Server Message:", res)
                     this.setState({
                         isRegistered: true,
                     });
@@ -237,7 +231,6 @@ export class RegistrationComponent extends Component {
                             error.response.data.message) ||
                         error.message ||
                         error.toString();
-                    console.log("Server Error Message:", resMessage)
                     this.setState({
                         loading: false,
                         message: resMessage,

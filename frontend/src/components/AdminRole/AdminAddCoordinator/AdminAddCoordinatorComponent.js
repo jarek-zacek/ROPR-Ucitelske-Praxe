@@ -148,9 +148,6 @@ export class RegistrationComponent extends Component {
     };
 
     handleRegister(e) {
-        console.log("handling register")
-        //Use something like this to check renderering, but after everything is fetched from the server
-        // Uncomment this below and add proper error handling for servercall
         e.preventDefault();
         this.form.validateAll();
         if (this.checkBtn.context._errors.length === 0) {
@@ -161,7 +158,6 @@ export class RegistrationComponent extends Component {
             });
             AuthService.registerCoordinator(this.state.email, this.state.name, this.state.surname, this.state.password, "coordinator").then(
                 (res) => {
-                    console.log("Server Message:", res)
                     this.setState({
                         isRegistered: true,
                         message_success: res,
@@ -171,7 +167,6 @@ export class RegistrationComponent extends Component {
                 (error) => {
                     const resMessage = error.response.data.message.split(":")[1];
                     error.toString();
-                    console.log("Server Error Message:", resMessage)
                     this.setState({
                         loading: false,
                         message: resMessage,

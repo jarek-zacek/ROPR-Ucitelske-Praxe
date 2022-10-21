@@ -33,7 +33,6 @@ export class ForgotPasswordEmail extends Component {
     }
 
     handleEmailSend(e) {
-        console.log("form with email", e);
         e.preventDefault();
         this.form.validateAll();
         if (this.checkBtn.context._errors.length === 0) {

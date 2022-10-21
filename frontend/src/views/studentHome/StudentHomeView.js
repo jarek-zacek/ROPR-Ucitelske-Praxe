@@ -8,7 +8,6 @@ import ReservedPracticeListComponent
 import PastPracticeListComponent from "../../components/StudentRole/pastPracticeList/PastPracticeListComponent";
 
 const checkRole = () => {
-  console.log("hello");
   return localStorage.getItem("role") !== "ROLE_STUDENT";
 };
 

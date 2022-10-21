@@ -77,7 +77,6 @@ export default class Login extends Component {
 
     componentDidMount(e) {
         if (window.location.href.includes("forgotPasswordToken")) {
-            console.log("forgotPasswordToken");
             this.setState({
                 forgotPasswordTokenPresent: true,
             });

@@ -94,7 +94,6 @@ const FileManagementComponent = ({userDataRef}) => {
                 data: formData,
             }).then(function (response) {
                 setMessageColor("green");
-                console.log(JSON.stringify(response.data));
                 setFileUploadResponse(response.data.message);
                 setFileUploadProgress(false);
             })

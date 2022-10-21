@@ -84,7 +84,6 @@ export const TeacherPassedPractices = () => {
             setSelectedFile(e.target.files[0]);
             setFileSize(e.target.files[0].size / 1000000);
             setFileNameLength(e.target.files[0].name.length);
-            console.log(e.target.files[0].name.length);
 
             let split = e.target.files[0].name.split(".");
             setFileExt(split[split.length - 1]);
@@ -102,7 +101,6 @@ export const TeacherPassedPractices = () => {
                 return;
             }
             if (fileNameLength > MAX_REPORT_FILE_NAME_LENGTH) {
-                console.log(fileNameLength)
                 setAlertId(index);
                 setSuccessMessage("");
                 setErrorMessage(`Délka názvu souboru nesmí být větší než ${MAX_REPORT_FILE_NAME_LENGTH} znaků.`);
@@ -112,7 +110,6 @@ export const TeacherPassedPractices = () => {
                 setAlertId(index);
                 setSuccessMessage("");
                 setErrorMessage(`Nepovolená přípona souboru (mohou být jen: ${ALLOWED_REPORT_EXTENSIONS.join(', ')}).`);
-                console.log(errorMessage);
                 return;
             }
             let formData = new FormData();
@@ -126,7 +123,6 @@ export const TeacherPassedPractices = () => {
                 headers: {'content-type': 'application/json'},
                 data: formData,
             }).then(function (response) {
-                console.log(JSON.stringify(response.data));
                 setAlertId(index);
                 setSuccessMessage("Soubor byl úspěšně nahrán.");
                 setErrorMessage("");
@@ -205,7 +201,6 @@ export const TeacherPassedPractices = () => {
                 setModalShowReview(true);
             });
             if (response && response.data) {
-                console.log(response.data);
                 setSelectedReview(response.data);
                 setModalShowReview(true);
             } else {
@@ -381,14 +376,10 @@ export const TeacherPassedPractices = () => {
             if (shouldCall) {
                 setShouldCall(false);
             }
-            console.log();
             Object.keys(reviews).forEach(key => {
                 let id = key;
                 let name = reviews[key]
-                console.log(id, name);
-
                 document.getElementById(key + " " + name).classList.remove('review-btn-not-disabled');
-
             });
         }
 

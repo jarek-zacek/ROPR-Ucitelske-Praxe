@@ -52,7 +52,6 @@ function ShowCoordinators() {
 
     React.useEffect(() => {
         getCoordinators();
-        console.log(coordinators);
     }, []);
 
     const removeCoordinator = async () => {

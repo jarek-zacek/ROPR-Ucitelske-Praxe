@@ -27,7 +27,6 @@ export const WaitingListComponent = () => {
             console.log(err.response.data.message);
         });
         if (response && response.data) {
-            console.log(response);
             setUsers(response.data);
         }
     };
@@ -66,7 +65,6 @@ export const WaitingListComponent = () => {
             console.log(err.response.data.message);
         });
         if (response && response.data) {
-            console.log(response);
             getLockedUsers();
         }
     };
@@ -82,7 +80,6 @@ export const WaitingListComponent = () => {
             console.log(err.response.data.message);
         });
         if (response && response.data) {
-            console.log(response);
             setModalShow(false);
             getLockedUsers();
         }
