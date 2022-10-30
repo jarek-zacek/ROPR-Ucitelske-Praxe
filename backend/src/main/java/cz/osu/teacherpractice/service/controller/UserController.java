@@ -1,45 +1,28 @@
 package cz.osu.teacherpractice.service.controller;
 
-import cz.osu.teacherpractice.config.AppConfig;
-import cz.osu.teacherpractice.dto.request.ForgotPasswordDto;
 import cz.osu.teacherpractice.dto.request.PasswordDto;
 import cz.osu.teacherpractice.dto.response.UserDto;
 import cz.osu.teacherpractice.mapper.MapStructMapper;
 import cz.osu.teacherpractice.model.User;
 import cz.osu.teacherpractice.dto.response.SchoolDto;
 import cz.osu.teacherpractice.dto.response.SubjectDto;
-import cz.osu.teacherpractice.repository.UserRepository;
 import cz.osu.teacherpractice.service.UserService;
-import cz.osu.teacherpractice.service.email.EmailService;
 import cz.osu.teacherpractice.service.fileManagement.FileService;
-import cz.osu.teacherpractice.service.security.UserSecurityService;
-import cz.osu.teacherpractice.service.token.registrationToken.ConfirmationToken;
-import cz.osu.teacherpractice.service.token.registrationToken.ConfirmationTokenRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.Principal;
-import java.time.LocalDateTime;
 import java.util.*;
-
-import static cz.osu.teacherpractice.config.AppConfig.baseUrlProduction;
 
 @RestController @RequiredArgsConstructor
 public class UserController {

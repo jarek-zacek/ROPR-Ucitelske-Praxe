@@ -21,12 +21,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import java.util.List;
 
-import static cz.osu.teacherpractice.config.AppConfig.baseUrlDevelopment;
-import static cz.osu.teacherpractice.config.AppConfig.baseUrlProduction;
+import static cz.osu.teacherpractice.config.AppConfig.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration
@@ -90,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of(baseUrlDevelopment, baseUrlProduction));
+        configuration.setAllowedOrigins(List.of(baseUrlDevelopment, baseIpProduction, baseDnsProduction));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
         configuration.setAllowCredentials(true);

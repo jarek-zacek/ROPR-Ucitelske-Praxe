@@ -1,8 +1,6 @@
 package cz.osu.teacherpractice.service.forgotPassword;
 
 import cz.osu.teacherpractice.dto.request.ForgotPasswordDto;
-import cz.osu.teacherpractice.dto.request.RegistrationDto;
-import cz.osu.teacherpractice.dto.response.SchoolDto;
 import cz.osu.teacherpractice.model.User;
 import cz.osu.teacherpractice.repository.UserRepository;
 import cz.osu.teacherpractice.service.UserService;
@@ -17,11 +15,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.*;
 
-import static cz.osu.teacherpractice.config.AppConfig.baseUrlProduction;
+import static cz.osu.teacherpractice.config.AppConfig.baseDnsProduction;
+import static cz.osu.teacherpractice.config.AppConfig.baseIpProduction;
 
 @RestController
 @RequestMapping(path = "/forgotPassword")
@@ -49,7 +47,7 @@ public class ForgotPasswordController {
         }
         String token = UUID.randomUUID().toString();
         userService.createPasswordResetTokenForUser(user, token);
-        String link = baseUrlProduction + "/login?forgotPasswordToken=" + token;
+        String link = baseDnsProduction + "/login?forgotPasswordToken=" + token;
         new Thread(new Runnable() {
             public void run() {
                 emailService.sendForgotPasswordMail(result, forgotPasswordService.buildEmail(user.getFirstName(), link));

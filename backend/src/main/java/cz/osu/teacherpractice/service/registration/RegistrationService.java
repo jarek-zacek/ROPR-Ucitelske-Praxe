@@ -18,7 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
-import static cz.osu.teacherpractice.config.AppConfig.baseUrlProduction;
+import static cz.osu.teacherpractice.config.AppConfig.baseDnsProduction;
+import static cz.osu.teacherpractice.config.AppConfig.baseIpProduction;
 
 @Service
 @AllArgsConstructor
@@ -107,7 +108,7 @@ public class RegistrationService {
                 new User(email, password, firstName, lastName, school, phoneNumber, role, locked)
         );
 
-        String link = baseUrlProduction + "/login?token=" + token;
+        String link = baseDnsProduction + "/login?token=" + token;
         emailSender.send(
                 request.getEmail(),
                 buildEmail(request.getFirstName(), link));
