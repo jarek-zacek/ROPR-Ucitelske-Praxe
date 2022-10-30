@@ -19,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 
 import static cz.osu.teacherpractice.config.AppConfig.baseDnsProduction;
-import static cz.osu.teacherpractice.config.AppConfig.baseIpProduction;
 
 @Service
 @AllArgsConstructor

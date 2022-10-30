@@ -19,7 +19,6 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import static cz.osu.teacherpractice.config.AppConfig.baseDnsProduction;
-import static cz.osu.teacherpractice.config.AppConfig.baseIpProduction;
 
 @RestController
 @RequestMapping(path = "/forgotPassword")
