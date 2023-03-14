@@ -54,7 +54,7 @@ public class TeacherPracticeApp {
     @Bean
     CommandLineRunner run() {
         return args -> {
-            boolean isProduction = true;
+            boolean isProduction = false;
             if (isProduction) return;
             
             // delete all data from database (turning off in production)
